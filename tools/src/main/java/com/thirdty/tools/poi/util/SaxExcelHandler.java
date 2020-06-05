@@ -21,15 +21,12 @@ import lombok.Setter;
 /**
  * Excel单sheet页解析工具类，支持使用注解和配置文件，支持100万数据
  * 
- * @author whk00104/金豆-小蝴蝶
- * @since 2018-04
  */
 public class SaxExcelHandler extends DefaultHandler {
 
     /**
      * Excel中的xml开始加载
      * 
-     * @author whk00104/金豆-小蝴蝶
      */
     public void startDocument() throws SAXException {
         if (supplier == null) {
@@ -40,7 +37,6 @@ public class SaxExcelHandler extends DefaultHandler {
     /**
      * Excel中的xml结束加载
      * 
-     * @author whk00104/金豆-小蝴蝶
      */
     public void endDocument() throws SAXException {
         supplier.over();
@@ -49,7 +45,6 @@ public class SaxExcelHandler extends DefaultHandler {
     /**
      * xml元素开始解析
      * 
-     * @author whk00104/金豆-小蝴蝶
      */
     public void startElement(String uri, String localName, String name, Attributes attributes) throws SAXException {
         switch (name) {
@@ -78,7 +73,6 @@ public class SaxExcelHandler extends DefaultHandler {
     /**
      * xml元素结束解析
      * 
-     * @author whk00104/金豆-小蝴蝶
      */
     public void endElement(String uri, String localName, String name) throws SAXException {
         switch (name) {
@@ -112,7 +106,6 @@ public class SaxExcelHandler extends DefaultHandler {
     /**
      * xml元素中的内容
      * 
-     * @author whk00104/金豆-小蝴蝶
      */
     public void characters(char[] ch, int start, int length) throws SAXException {
     	if (null != valueBuffer){
@@ -123,7 +116,6 @@ public class SaxExcelHandler extends DefaultHandler {
     /**
      * 根据Excel列索引字母获取列索引数字
      * 
-     * @author whk00104/金豆-小蝴蝶
      */
     private String getColIndex(String r) {
         return r.replaceAll("[^a-z^A-Z]", "");
@@ -132,7 +124,6 @@ public class SaxExcelHandler extends DefaultHandler {
     /**
      * 将从Excel中读取的字符串转化为数据字段的格式
      * 
-     * @author whk00104/金豆-小蝴蝶
      * @param valueStr
      * @param type
      * @return
@@ -166,7 +157,6 @@ public class SaxExcelHandler extends DefaultHandler {
     /**
      * 解析时间，只处理少数格式
      * 
-     * @author whk00104/金豆-小蝴蝶
      * @param str
      * @return
      */
